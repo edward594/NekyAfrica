@@ -12,11 +12,15 @@
             --primary-dark: #d35400;
             --secondary: #2c3e50;
             --accent: #16a085;
+            --accent-light: #1abc9c;
             --light: #f9f9f9;
             --dark: #333;
             --text: #444;
+            --background: #f5f7fa;
+            --card-bg: #ffffff;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         }
 
         * {
@@ -29,7 +33,7 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: var(--light);
+            background-color: var(--background);
             overflow-x: hidden;
         }
 
@@ -52,6 +56,7 @@
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
         .container {
@@ -64,7 +69,7 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             border: none;
             border-radius: 5px;
@@ -72,20 +77,20 @@
             font-weight: 600;
             transition: var(--transition);
             text-align: center;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
             box-shadow: var(--shadow);
         }
 
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
         .btn-secondary {
-            background-color: var(--secondary);
+            background: var(--secondary);
         }
 
         .btn-secondary:hover {
-            background-color: #1a252f;
+            background: #1a252f;
         }
 
         .section {
@@ -106,7 +111,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--primary);
+            background: var(--gradient);
         }
 
         /* Header & Navigation */
@@ -179,7 +184,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--gradient);
             transition: var(--transition);
         }
 
@@ -241,7 +246,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -295,6 +300,15 @@
             font-weight: 500;
         }
 
+        /* Daily Caption */
+        .daily-caption {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--gradient);
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
         /* Floating Contact Icons */
         .floating-contact {
             position: fixed;
@@ -335,6 +349,14 @@
             background-color: #006AFF;
         }
 
+        .email-icon {
+            background-color: var(--accent);
+        }
+
+        .telegram-icon {
+            background-color: #0088cc;
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -368,12 +390,13 @@
         }
 
         .value-card {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border-top: 4px solid var(--primary);
         }
 
         .value-card:hover {
@@ -398,11 +421,12 @@
         }
 
         .service-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border-top: 4px solid var(--accent);
         }
 
         .service-card:hover {
@@ -498,92 +522,213 @@
             transform: translateY(0);
         }
 
-        /* Team Section */
-        .team {
+        /* Clothing Section */
+        .clothing-section {
             background-color: #f5f5f5;
         }
 
-        .team-grid {
+        .clothing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .team-member {
-            background-color: white;
+        .clothing-item {
+            background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            text-align: center;
         }
 
-        .team-member:hover {
+        .clothing-item:hover {
             transform: translateY(-10px);
         }
 
-        .member-img {
-            height: 250px;
+        .clothing-img {
+            height: 300px;
             overflow: hidden;
         }
 
-        .member-img img {
+        .clothing-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .clothing-item:hover .clothing-img img {
+            transform: scale(1.05);
+        }
+
+        .clothing-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .clothing-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .clothing-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Slideshow Section */
+        .slideshow-section {
+            background-color: #f5f5f5;
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .mySlides {
+            display: none;
+            height: 100%;
+        }
+
+        .mySlides img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .member-info {
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .dot-container {
+            text-align: center;
             padding: 20px;
+            background: #f1f1f1;
         }
 
-        .member-info h3 {
-            margin-bottom: 5px;
-        }
-
-        .member-role {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .member-contact {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .contact-link {
-            width: 35px;
-            height: 35px;
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
             border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: var(--primary);
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* Process Section (Replaces Team) */
+        .process {
             background-color: #f5f5f5;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border-top: 4px solid var(--accent-light);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            font-weight: bold;
         }
 
-        .contact-link:hover {
-            background-color: var(--primary);
-            color: white;
+        .process-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         /* Testimonials Section */
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 0 auto;
+        .testimonials-container {
             position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .testimonial {
-            background-color: white;
+            flex: 0 0 100%;
+            background-color: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
             text-align: center;
             margin: 0 15px;
+            border-left: 4px solid var(--primary);
         }
 
         .client-img {
@@ -615,6 +760,189 @@
             color: var(--secondary);
         }
 
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Flip Cards Section */
+        .flip-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .flip-card-front {
+            background-color: var(--card-bg);
+            color: black;
+        }
+
+        .flip-card-back {
+            background: var(--gradient);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .flip-card-back .flip-card-icon {
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+        }
+
+        /* Application Section */
+        .application-section {
+            background-color: #f5f5f5;
+        }
+
+        .application-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .application-tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .application-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .application-form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .application-form.active {
+            display: block;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Document Viewer */
+        .document-viewer {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .document-preview {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 300px;
+            background-color: #f9f9f9;
+        }
+
         /* Contact Section */
         .contact-content {
             display: grid;
@@ -638,7 +966,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             display: flex;
             align-items: center;
@@ -652,7 +980,7 @@
         }
 
         .contact-form {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -742,7 +1070,7 @@
             left: 0;
             width: 50px;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--gradient);
         }
 
         .footer-links li {
@@ -776,7 +1104,7 @@
         }
 
         .social-link:hover {
-            background-color: var(--primary);
+            background: var(--gradient);
             transform: translateY(-5px);
         }
 
@@ -800,7 +1128,7 @@
         }
 
         .modal-content {
-            background-color: white;
+            background-color: var(--card-bg);
             margin: 50px auto;
             padding: 30px;
             border-radius: 10px;
@@ -836,7 +1164,7 @@
         }
 
         .modal-body::-webkit-scrollbar-thumb {
-            background-color: var(--primary);
+            background: var(--gradient);
             border-radius: 5px;
         }
 
@@ -852,7 +1180,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             display: flex;
             align-items: center;
@@ -873,7 +1201,7 @@
             right: 0;
             width: 350px;
             height: 450px;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
             box-shadow: var(--shadow);
             display: none;
@@ -882,7 +1210,7 @@
         }
 
         .chatbot-header {
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             padding: 15px;
             display: flex;
@@ -918,7 +1246,7 @@
         }
 
         .user-message {
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 5px;
@@ -939,7 +1267,7 @@
         }
 
         .chatbot-input button {
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
             border: none;
             border-radius: 50%;
@@ -952,225 +1280,58 @@
             justify-content: center;
         }
 
-        /* Flip Cards */
-        .flip-card {
-            background-color: transparent;
-            width: 300px;
-            height: 300px;
-            perspective: 1000px;
-            margin: 0 auto;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .flip-card-front {
-            background-color: white;
-            color: black;
+        .chatbot-options {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 15px;
+            border-top: 1px solid #eee;
         }
 
-        .flip-card-back {
-            background-color: var(--primary);
-            color: white;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background-color: var(--secondary);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .newsletter-form {
-            max-width: 500px;
-            margin: 30px auto 0;
-            display: flex;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-        }
-
-        .newsletter-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 5px 5px 0;
+        .chatbot-option {
+            background-color: #f1f1f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .newsletter-btn:hover {
-            background-color: var(--primary-dark);
+        .chatbot-option:hover {
+            background-color: #e1e1e1;
         }
 
-        /* Slideshow */
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-            height: 500px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .mySlides {
-            display: none;
-            height: 100%;
-        }
-
-        .mySlides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
+        /* Popup Terms */
+        .popup-terms {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
             color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0,0,0,0.5);
-        }
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active, .dot:hover {
-            background-color: #717171;
-        }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border-radius: 5px;
-            overflow: hidden;
+            padding: 15px 25px;
+            border-radius: 50px;
             box-shadow: var(--shadow);
-        }
-
-        .faq-question {
-            background-color: white;
-            padding: 15px 20px;
-            cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: var(--transition);
+            gap: 10px;
+            z-index: 999;
+            cursor: pointer;
         }
 
-        .faq-question:hover {
-            background-color: #f5f5f5;
+        /* Growing Text Animation */
+        .growing-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 30px 0;
+            color: var(--secondary);
+            animation: grow 2s infinite alternate;
         }
 
-        .faq-answer {
-            background-color: #f9f9f9;
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 20px;
-            max-height: 500px;
-        }
-
-        /* Map */
-        .map-container {
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Audio Player */
-        .audio-player {
-            width: 100%;
-            margin: 20px 0;
+        @keyframes grow {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
         }
 
         /* Responsive */
@@ -1181,6 +1342,10 @@
 
             .hero h1 {
                 font-size: 2.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1262,18 +1427,20 @@
                 height: 400px;
             }
 
-            .newsletter-form {
+            .application-tabs {
                 flex-direction: column;
             }
 
-            .newsletter-input {
-                border-radius: 5px;
-                margin-bottom: 10px;
+            .application-tab {
+                text-align: center;
             }
 
-            .newsletter-btn {
-                border-radius: 5px;
-                padding: 12px;
+            .document-actions {
+                flex-direction: column;
+            }
+
+            .slideshow-container {
+                height: 300px;
             }
         }
 
@@ -1295,8 +1462,9 @@
                 right: -20px;
             }
 
-            .slideshow-container {
-                height: 300px;
+            .popup-terms {
+                width: 90%;
+                text-align: center;
             }
         }
     </style>
@@ -1323,8 +1491,12 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                    <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                    <li class="nav-item"><a href="#clothing" class="nav-link">Clothing</a></li>
+                    <li class="nav-item"><a href="#slideshow" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#process" class="nav-link">Our Process</a></li>
                     <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#stats" class="nav-link">Stats</a></li>
+                    <li class="nav-item"><a href="#application" class="nav-link">Work With Us</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -1347,8 +1519,11 @@
                     <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
                 </div>
                 <div class="quote-container">
-                    <p class="quote">"Design is not just what it looks like and feels like. Design is how it works."</p>
-                    <p class="author">- Steve Jobs</p>
+                    <p class="quote" id="dailyQuote">"Design is not just what it looks like and feels like. Design is how it works."</p>
+                    <p class="author" id="quoteAuthor">- Steve Jobs</p>
+                </div>
+                <div class="daily-caption" id="dailyCaption">
+                    Today's Inspiration: Creativity takes courage
                 </div>
             </div>
         </div>
@@ -1364,6 +1539,12 @@
         </a>
         <a href="#" class="contact-icon messenger-icon">
             <i class="fab fa-facebook-messenger"></i>
+        </a>
+        <a href="mailto:nekyafricaconceptuals@gmail.com" class="contact-icon email-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="#" class="contact-icon telegram-icon">
+            <i class="fab fa-telegram"></i>
         </a>
     </div>
 
@@ -1506,86 +1687,142 @@
                         <p>Complete identity for a financial institution</p>
                     </div>
                 </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Portfolio Item 5">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Digital Campaign</h3>
+                        <p>Social media campaign for a lifestyle brand</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1558655146-3642f11627e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Portfolio Item 6">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Event Branding</h3>
+                        <p>Complete branding for a major conference</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="section team" id="team">
+    <!-- Clothing Section -->
+    <section class="section clothing-section" id="clothing">
         <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member 1">
+            <h2 class="section-title">Branded Clothing Collection</h2>
+            <div class="clothing-grid">
+                <div class="clothing-item">
+                    <div class="clothing-img">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Branded T-Shirt">
                     </div>
-                    <div class="member-info">
-                        <h3>Eliud Kariuki</h3>
-                        <p class="member-role">Creative Director</p>
-                        <p>Founder and lead creative strategist with over 10 years of experience.</p>
-                        <div class="member-contact">
-                            <a href="mailto:eliud@nekyafrica.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="tel:0110250012" class="contact-link">
-                                <i class="fas fa-phone"></i>
-                            </a>
-                        </div>
+                    <div class="clothing-info">
+                        <h3>Premium Cotton T-Shirt</h3>
+                        <p class="clothing-price">$24.99</p>
+                        <button class="btn">Add to Cart</button>
                     </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member 2">
+                <div class="clothing-item">
+                    <div class="clothing-img">
+                        <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Hoodie">
                     </div>
-                    <div class="member-info">
-                        <h3>Wanjiku Mwangi</h3>
-                        <p class="member-role">Senior Designer</p>
-                        <p>Specializes in branding and visual identity systems.</p>
-                        <div class="member-contact">
-                            <a href="mailto:wanjiku@nekyafrica.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="tel:0110250012" class="contact-link">
-                                <i class="fas fa-phone"></i>
-                            </a>
-                        </div>
+                    <div class="clothing-info">
+                        <h3>Comfort Hoodie</h3>
+                        <p class="clothing-price">$49.99</p>
+                        <button class="btn">Add to Cart</button>
                     </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member 3">
+                <div class="clothing-item">
+                    <div class="clothing-img">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Baseball Cap">
                     </div>
-                    <div class="member-info">
-                        <h3>Kamau Otieno</h3>
-                        <p class="member-role">Print Specialist</p>
-                        <p>Expert in all printing techniques and material selection.</p>
-                        <div class="member-contact">
-                            <a href="mailto:kamau@nekyafrica.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="tel:0110250012" class="contact-link">
-                                <i class="fas fa-phone"></i>
-                            </a>
-                        </div>
+                    <div class="clothing-info">
+                        <h3>Classic Baseball Cap</h3>
+                        <p class="clothing-price">$19.99</p>
+                        <button class="btn">Add to Cart</button>
                     </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-img">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Team Member 4">
+                <div class="clothing-item">
+                    <div class="clothing-img">
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Polo Shirt">
                     </div>
-                    <div class="member-info">
-                        <h3>James Smith</h3>
-                        <p class="member-role">Digital Strategist</p>
-                        <p>Focuses on digital solutions and online presence.</p>
-                        <div class="member-contact">
-                            <a href="mailto:james@nekyafrica.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="tel:0110250012" class="contact-link">
-                                <i class="fas fa-phone"></i>
-                            </a>
-                        </div>
+                    <div class="clothing-info">
+                        <h3>Professional Polo Shirt</h3>
+                        <p class="clothing-price">$34.99</p>
+                        <button class="btn">Add to Cart</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slideshow Section -->
+    <section class="section slideshow-section" id="slideshow">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="https://images.unsplash.com/photo-1565688744648-0c60e917f637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Slide 1">
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Slide 2">
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://images.unsplash.com/photo-1602576666092-b5d761786598?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Slide 3">
+                </div>
+                <div class="mySlides fade">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Slide 4">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Replaces Team) -->
+    <section class="section process" id="process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="process-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Discovery</h3>
+                    <p>We begin by understanding your vision, goals, and target audience to create a solid foundation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="process-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Strategy & Design</h3>
+                    <p>We develop creative concepts and design solutions that align with your brand identity.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="process-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Execution</h3>
+                    <p>We bring designs to life with precision and attention to detail, ensuring quality at every step.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="process-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Delivery</h3>
+                    <p>We deliver the final product and provide ongoing support to ensure your complete satisfaction.</p>
                 </div>
             </div>
         </div>
@@ -1595,20 +1832,312 @@
     <section class="section" id="testimonials">
         <div class="container">
             <h2 class="section-title">Client Testimonials</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="client-img">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 1">
+            <div class="testimonials-container">
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonial">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 1">
+                        </div>
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-text">"NekyAfrica transformed our brand identity and gave us designs that truly stand out. Their attention to detail and creative approach exceeded our expectations."</p>
+                        <p class="client-name">John Mwangi, CEO of TechSolutions</p>
                     </div>
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="testimonial">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 2">
+                        </div>
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-text">"The team at NekyAfrica delivered exceptional printing services for our marketing materials. The quality was outstanding and the turnaround time was impressive."</p>
+                        <p class="client-name">Sarah Johnson, Marketing Director at RetailPlus</p>
                     </div>
-                    <p class="client-text">"NekyAfrica transformed our brand identity and gave us designs that truly stand out. Their attention to detail and creative approach exceeded our expectations."</p>
-                    <p class="client-name">John Mwangi, CEO of TechSolutions</p>
+                    <div class="testimonial">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 3">
+                        </div>
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-text">"Working with NekyAfrica was a game-changer for our business. Their strategic approach to branding helped us connect with our target audience in meaningful ways."</p>
+                        <p class="client-name">David Kimani, Founder of EcoSolutions</p>
+                    </div>
+                    <div class="testimonial">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 4">
+                        </div>
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-text">"The graphic design work from NekyAfrica elevated our brand to a whole new level. Their creativity and professionalism made the entire process seamless."</p>
+                        <p class="client-name">Grace Omondi, Creative Director at FashionForward</p>
+                    </div>
+                    <div class="testimonial">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Client 5">
+                        </div>
+                        <div class="client-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="client-text">"From concept to execution, NekyAfrica demonstrated exceptional skill and dedication. Our packaging design received rave reviews from customers and retailers alike."</p>
+                        <p class="client-name">Michael Otieno, Product Manager at FreshFoods</p>
+                    </div>
+                </div>
+                <div class="testimonial-nav" id="testimonialNav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                    <div class="testimonial-dot" data-index="3"></div>
+                    <div class="testimonial-dot" data-index="4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growing Text Section -->
+    <section class="section">
+        <div class="container">
+            <div class="growing-text" id="growingText">
+                Transforming Ideas Into Visual Masterpieces
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section" id="stats">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="250">0</div>
+                    <div class="stat-text">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-text">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-text">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flip Cards Section -->
+    <section class="section" id="flip-cards">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="flip-cards-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Innovative Solutions</h3>
+                            <p>We push creative boundaries to deliver unique designs</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Cutting-Edge Design</h3>
+                            <p>Our team stays ahead of design trends to ensure your brand remains relevant and impactful.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Client-Centric Approach</h3>
+                            <p>Your vision is our priority throughout the creative process</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Collaborative Process</h3>
+                            <p>We work closely with you, ensuring your input shapes the final product every step of the way.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3>Quality Assurance</h3>
+                            <p>We maintain the highest standards in all our deliverables</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="flip-card-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3>Excellence Guaranteed</h3>
+                            <p>Our rigorous quality control process ensures every project meets our exacting standards before delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="section application-section" id="application">
+        <div class="container">
+            <h2 class="section-title">Work With Us</h2>
+            <div class="application-tabs">
+                <div class="application-tab active" data-tab="job">Job Application</div>
+                <div class="application-tab" data-tab="project">Project Proposal</div>
+            </div>
+            
+            <div class="application-form active" id="jobForm">
+                <h3>Job Application Form</h3>
+                <form id="jobApplicationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Position Applied For</option>
+                            <option value="designer">Graphic Designer</option>
+                            <option value="developer">Web Developer</option>
+                            <option value="marketing">Marketing Specialist</option>
+                            <option value="print">Print Specialist</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Cover Letter" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <i class="fas fa-paperclip"></i> Upload Resume/CV
+                            </div>
+                            <input type="file" accept=".pdf,.doc,.docx">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <i class="fas fa-paperclip"></i> Upload Portfolio (Optional)
+                            </div>
+                            <input type="file" accept=".pdf,.jpg,.png,.zip">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="generateJobForm">Generate Form</button>
+                        <button type="submit" class="btn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="application-form" id="projectForm">
+                <h3>Project Proposal Form</h3>
+                <form id="projectProposalForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Company Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Contact Person" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Service Required</option>
+                            <option value="branding">Branding & Identity</option>
+                            <option value="graphic">Graphic Design</option>
+                            <option value="printing">Printing Solutions</option>
+                            <option value="marketing">Marketing Collateral</option>
+                            <option value="digital">Digital Solutions</option>
+                            <option value="multiple">Multiple Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Project Description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Specific Requirements" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <i class="fas fa-paperclip"></i> Upload Reference Materials (Optional)
+                            </div>
+                            <input type="file" accept=".pdf,.jpg,.png,.doc,.docx,.zip">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="generateProjectForm">Generate Form</button>
+                        <button type="submit" class="btn">Submit Proposal</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="document-viewer">
+                <h3>Document Center</h3>
+                <div class="document-actions">
+                    <button class="btn" id="uploadDocument">Upload Document</button>
+                    <button class="btn btn-secondary" id="viewDocuments">View Documents</button>
+                    <button class="btn" id="downloadTemplate">Download Template</button>
+                    <button class="btn" id="emailDocument">Email Document</button>
+                </div>
+                <div class="document-preview" id="documentPreview">
+                    <p>Upload or select a document to preview it here.</p>
                 </div>
             </div>
         </div>
@@ -1711,7 +2240,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#process">Our Process</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1754,14 +2283,27 @@
             </div>
             <div class="chatbot-messages" id="chatbotMessages">
                 <div class="message bot-message">
-                    Hello! How can I help you today?
+                    Hello! I'm your NekyAfrica assistant. How can I help you today?
                 </div>
+            </div>
+            <div class="chatbot-options" id="chatbotOptions">
+                <div class="chatbot-option" data-option="services">Our Services</div>
+                <div class="chatbot-option" data-option="pricing">Pricing</div>
+                <div class="chatbot-option" data-option="portfolio">View Portfolio</div>
+                <div class="chatbot-option" data-option="contact">Contact Info</div>
             </div>
             <div class="chatbot-input">
                 <input type="text" placeholder="Type your message..." id="chatbotInput">
                 <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
+    </div>
+
+    <!-- Popup Terms -->
+    <div class="popup-terms" id="popupTerms">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>By using this site, you agree to our Terms & Conditions</span>
+        <i class="fas fa-times" id="closePopupTerms"></i>
     </div>
 
     <!-- Modals -->
@@ -1806,6 +2348,63 @@
         </div>
     </div>
 
+    <!-- Complete Application Form Modal -->
+    <div class="modal" id="completeApplicationModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeCompleteApplication">&times;</span>
+            <div class="modal-header">
+                <h2>Complete Application Form</h2>
+            </div>
+            <div class="modal-body">
+                <form id="completeApplicationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Position" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Cover Letter" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <i class="fas fa-paperclip"></i> Upload Resume/CV
+                            </div>
+                            <input type="file" accept=".pdf,.doc,.docx" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <i class="fas fa-paperclip"></i> Upload Portfolio (Optional)
+                            </div>
+                            <input type="file" accept=".pdf,.jpg,.png,.zip">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required> I agree to the <a href="#" id="termsLinkInForm">Terms & Conditions</a>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Navigation
         const hamburger = document.querySelector('.hamburger');
@@ -1838,25 +2437,187 @@
             }
         });
 
-        // Quote rotation
+        // Daily Quote and Caption
         const quotes = [
             {text: "Design is not just what it looks like and feels like. Design is how it works.", author: "Steve Jobs"},
             {text: "The details are not the details. They make the design.", author: "Charles Eames"},
             {text: "Good design is obvious. Great design is transparent.", author: "Joe Sparano"},
-            {text: "Design creates culture. Culture shapes values. Values determine the future.", author: "Robert L. Peters"}
+            {text: "Design creates culture. Culture shapes values. Values determine the future.", author: "Robert L. Peters"},
+            {text: "Creativity is intelligence having fun.", author: "Albert Einstein"},
+            {text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci"},
+            {text: "Design is a plan for arranging elements in such a way as best to accomplish a particular purpose.", author: "Charles Eames"}
         ];
 
-        let quoteIndex = 0;
-        const quoteElement = document.querySelector('.quote');
-        const authorElement = document.querySelector('.author');
+        const captions = [
+            "Today's Inspiration: Creativity takes courage",
+            "Design Insight: Less is more",
+            "Creative Thought: Make it simple, but significant",
+            "Design Philosophy: Form follows function",
+            "Today's Motto: Innovate and inspire",
+            "Design Wisdom: The devil is in the details",
+            "Creative Mantra: Design with purpose"
+        ];
 
-        function rotateQuote() {
-            quoteIndex = (quoteIndex + 1) % quotes.length;
-            quoteElement.textContent = `"${quotes[quoteIndex].text}"`;
-            authorElement.textContent = `- ${quotes[quoteIndex].author}`;
+        function getDailyContent() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            
+            const quoteIndex = dayOfYear % quotes.length;
+            const captionIndex = dayOfYear % captions.length;
+            
+            document.getElementById('dailyQuote').textContent = `"${quotes[quoteIndex].text}"`;
+            document.getElementById('quoteAuthor').textContent = `- ${quotes[quoteIndex].author}`;
+            document.getElementById('dailyCaption').textContent = captions[captionIndex];
         }
 
-        setInterval(rotateQuote, 50000);
+        getDailyContent();
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        // Auto-advance slideshow
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+
+        // Testimonials slider
+        const testimonialsSlider = document.getElementById('testimonialsSlider');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialsSlider.style.transform = `translateX(-${index * 100}%)`;
+            
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            testimonialDots[index].classList.add('active');
+            
+            currentTestimonial = index;
+        }
+
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                showTestimonial(index);
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        }, 7000);
+
+        // Stats counter animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        function animateStats() {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        }
+
+        // Application tabs
+        const applicationTabs = document.querySelectorAll('.application-tab');
+        const applicationForms = document.querySelectorAll('.application-form');
+
+        applicationTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                applicationTabs.forEach(t => t.classList.remove('active'));
+                applicationForms.forEach(f => f.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(`${tabId}Form`).classList.add('active');
+            });
+        });
+
+        // Generate form functionality
+        document.getElementById('generateJobForm').addEventListener('click', () => {
+            document.getElementById('completeApplicationModal').style.display = 'block';
+        });
+
+        document.getElementById('generateProjectForm').addEventListener('click', () => {
+            alert('Project proposal form generated! You can now print or save it.');
+            // In a real implementation, this would generate a PDF or formatted document
+        });
+
+        // Document viewer functionality
+        document.getElementById('uploadDocument').addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.pdf,.doc,.docx,.jpg,.png';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (file) {
+                    document.getElementById('documentPreview').innerHTML = `
+                        <h4>${file.name}</h4>
+                        <p>File uploaded successfully. Preview would be displayed here in a real implementation.</p>
+                        <button class="btn">View Full Document</button>
+                        <button class="btn btn-secondary">Download</button>
+                    `;
+                }
+            };
+            input.click();
+        });
+
+        document.getElementById('viewDocuments').addEventListener('click', () => {
+            document.getElementById('documentPreview').innerHTML = `
+                <h4>Available Documents</h4>
+                <ul>
+                    <li><a href="#">Branding Guidelines Template</a></li>
+                    <li><a href="#">Project Brief Template</a></li>
+                    <li><a href="#">Print Specifications Document</a></li>
+                    <li><a href="#">Portfolio Showcase</a></li>
+                </ul>
+            `;
+        });
+
+        document.getElementById('downloadTemplate').addEventListener('click', () => {
+            alert('Template downloaded!');
+            // In a real implementation, this would download a file
+        });
+
+        document.getElementById('emailDocument').addEventListener('click', () => {
+            window.location.href = 'mailto:nekyafricaconceptuals@gmail.com?subject=Document Submission&body=Please find attached the requested document.';
+        });
 
         // Chatbot functionality
         const chatbotToggle = document.getElementById('chatbotToggle');
@@ -1865,6 +2626,7 @@
         const chatbotSend = document.getElementById('chatbotSend');
         const chatbotInput = document.getElementById('chatbotInput');
         const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotOptions = document.getElementById('chatbotOptions');
 
         chatbotToggle.addEventListener('click', () => {
             chatbotWindow.style.display = 'flex';
@@ -1903,6 +2665,10 @@
                         response = "You can reach us at 0110 250 012 or nekyafricaconceptuals@gmail.com. We'd love to hear from you!";
                     } else if (message.toLowerCase().includes('portfolio') || message.toLowerCase().includes('work')) {
                         response = "You can view our portfolio on our website. We've worked with various clients across different industries.";
+                    } else if (message.toLowerCase().includes('application') || message.toLowerCase().includes('job')) {
+                        response = "You can find our job application form in the 'Work With Us' section. We're always looking for talented individuals to join our team!";
+                    } else if (message.toLowerCase().includes('process') || message.toLowerCase().includes('workflow')) {
+                        response = "Our process involves four key steps: Discovery, Strategy & Design, Execution, and Delivery. You can learn more in the 'Our Process' section.";
                     }
                     
                     addMessage(response);
@@ -1917,6 +2683,31 @@
             }
         });
 
+        // Chatbot options
+        chatbotOptions.addEventListener('click', (e) => {
+            if (e.target.classList.contains('chatbot-option')) {
+                const option = e.target.getAttribute('data-option');
+                let response = "";
+                
+                switch(option) {
+                    case 'services':
+                        response = "We offer Branding & Identity, Graphic Design, Printing Solutions, Marketing Collateral, and Digital Solutions. Which one interests you?";
+                        break;
+                    case 'pricing':
+                        response = "Our pricing depends on the scope of your project. Contact us for a personalized quote tailored to your needs.";
+                        break;
+                    case 'portfolio':
+                        response = "You can view our portfolio in the 'Portfolio' section of our website. We've worked on diverse projects across various industries.";
+                        break;
+                    case 'contact':
+                        response = "You can reach us at:\nPhone: 0110 250 012\nEmail: nekyafricaconceptuals@gmail.com\nWe're available Monday-Friday 8AM-6PM and Saturday 9AM-2PM.";
+                        break;
+                }
+                
+                addMessage(response);
+            }
+        });
+
         // Modal functionality
         const privacyLink = document.getElementById('privacyLink');
         const termsLink = document.getElementById('termsLink');
@@ -1927,6 +2718,9 @@
         const printPrivacy = document.getElementById('printPrivacy');
         const printTerms = document.getElementById('printTerms');
         const downloadTerms = document.getElementById('downloadTerms');
+        const closeCompleteApplication = document.getElementById('closeCompleteApplication');
+        const completeApplicationModal = document.getElementById('completeApplicationModal');
+        const termsLinkInForm = document.getElementById('termsLinkInForm');
 
         privacyLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1938,6 +2732,12 @@
             termsModal.style.display = 'block';
         });
 
+        termsLinkInForm.addEventListener('click', (e) => {
+            e.preventDefault();
+            completeApplicationModal.style.display = 'none';
+            termsModal.style.display = 'block';
+        });
+
         closePrivacy.addEventListener('click', () => {
             privacyModal.style.display = 'none';
         });
@@ -1946,12 +2746,19 @@
             termsModal.style.display = 'none';
         });
 
+        closeCompleteApplication.addEventListener('click', () => {
+            completeApplicationModal.style.display = 'none';
+        });
+
         window.addEventListener('click', (e) => {
             if (e.target === privacyModal) {
                 privacyModal.style.display = 'none';
             }
             if (e.target === termsModal) {
                 termsModal.style.display = 'none';
+            }
+            if (e.target === completeApplicationModal) {
+                completeApplicationModal.style.display = 'none';
             }
         });
 
@@ -1974,6 +2781,19 @@
             document.body.removeChild(element);
         });
 
+        // Popup terms functionality
+        const popupTerms = document.getElementById('popupTerms');
+        const closePopupTerms = document.getElementById('closePopupTerms');
+
+        // Show popup after 3 seconds
+        setTimeout(() => {
+            popupTerms.style.display = 'flex';
+        }, 3000);
+
+        closePopupTerms.addEventListener('click', () => {
+            popupTerms.style.display = 'none';
+        });
+
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1981,31 +2801,52 @@
             this.reset();
         });
 
-        // Slideshow functionality
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change image every 5 seconds
-        }
-
-        // FAQ functionality
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your job application! We will review it and get back to you soon.');
+            this.reset();
         });
+
+        document.getElementById('projectProposalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your project proposal! We will review it and get back to you soon.');
+            this.reset();
+        });
+
+        document.getElementById('completeApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will review it and get back to you soon.');
+            this.reset();
+            completeApplicationModal.style.display = 'none';
+        });
+
+        // Growing text animation
+        const growingText = document.getElementById('growingText');
+        const texts = [
+            "Transforming Ideas Into Visual Masterpieces",
+            "Creating Brands That Stand Out",
+            "Designing With Purpose And Passion",
+            "Innovative Solutions For Modern Businesses"
+        ];
+        
+        let textIndex = 0;
+        
+        setInterval(() => {
+            textIndex = (textIndex + 1) % texts.length;
+            growingText.textContent = texts[textIndex];
+        }, 3000);
+
+        // Initialize stats animation when scrolled into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('stats'));
     </script>
 </body>
 </html>
